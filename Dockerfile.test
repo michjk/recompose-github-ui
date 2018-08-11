@@ -10,13 +10,13 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Versions
-RUN npm -v
+RUN yarn -v
 RUN node -v
 
 # Install app dependencies
 COPY package.json /usr/src/app/
 
-RUN npm install
+RUN yarn
 
 # Bundle app source
 COPY . /usr/src/app
@@ -25,4 +25,4 @@ COPY . /usr/src/app
 ENV NODE_ENV test
 
 # Main command
-CMD [ "npm", "test" ]
+CMD [ "yarn", "test" ]
